@@ -10,7 +10,6 @@ Severino Ferreira da Silva Neto
 
 # Sistema de ouvidoria com integração do banco de dados
 
-from operacoesbd import *
 from listarTudo import *
 from listarPorTipo import *
 from addManifestacao import *
@@ -29,7 +28,7 @@ while opcao != 8:   # Menu Principal
     print('(1).ListarTodos (2).ListarTipo (3).Criar (4).Quantidade (5).Pesquisar (6).Editar (7).Excluir (8).Sair')
     print()
     print()
-    opcao = input('Digite o número da opção: ')
+    opcao = int(input('Digite o número da opção: '))
 
     if opcao == 1:   # Listar todos
        listarTodasAsManifestacoes(conexao)
@@ -43,7 +42,7 @@ while opcao != 8:   # Menu Principal
         print()
         listarManifestacaoPorTipo(conexao)
 
-    elif opcao == '3':   # Criar Manifestação
+    elif opcao == 3:   # Criar Manifestação
         print()
         print()
         print('                                  ===\   CRIAR MANIFESTAÇÃO   /===')
@@ -53,7 +52,7 @@ while opcao != 8:   # Menu Principal
         criarManifestacao(conexao)
 
 
-    elif opcao == '4':   # Quantidade de Manifestações
+    elif opcao == 4:   # Quantidade de Manifestações
         print()
         print()
         print('                              ===\   QUANTIDADE DE MANIFESTAÇÕES   /===')
@@ -61,14 +60,14 @@ while opcao != 8:   # Menu Principal
         print()
         listarQuantidadeDeManifestacao(conexao)
 
-    elif opcao == '5':   # Pesquisar por Código
+    elif opcao == 5:   # Pesquisar por Código
         print()
         print()
         print('                                 ===\   PESQUISAR POR CÓDIGO   /===')
         print()
         print()
         pesquisarManifestacaoPorCodigo(conexao)
-    elif opcao == '6':   # Editar Manifestação
+    elif opcao == 6:   # Editar Manifestação
         print()
         print()
         print('                                  ===\   EDITAR MANIFESTAÇÃO   /===')
@@ -76,9 +75,7 @@ while opcao != 8:   # Menu Principal
         print()
         editarManifestacao(conexao)
 
-
-
-    elif opcao == '7':   # Excluir Manifestação
+    elif opcao == 7:   # Excluir Manifestação
         print()
         print()
         print('                                 ===\   EXCLUIR MANIFESTAÇÃO   /===')
@@ -86,7 +83,7 @@ while opcao != 8:   # Menu Principal
         print()
         deletarManifestacao(conexao)
 
-    elif opcao != '8':
+    elif opcao != 8:
         print('Opção inválida!')
 
 print()
