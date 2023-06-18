@@ -28,74 +28,79 @@ while opcao != 8:   # Menu Principal
     print('(1).ListarTodos (2).ListarTipo (3).Criar (4).Quantidade (5).Pesquisar (6).Editar (7).Excluir (8).Sair')
     print()
     print()
-    opcao = int(input('Digite o número da opção: '))
 
-    if opcao == 1:   # Listar todos
-       listarTodasAsManifestacoes(conexao)
+    try:
+        opcao = int(input('Digite o número da opção: '))
 
-    elif opcao == 2:   # Listar por tipo
-        print()
-        print()
-        print('                                   ===\   LISTAGEM POR TIPO   /===')
-        print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
-        print()
-        print()
-        opcao = int(input('Digite sua opcao: '))
+        if opcao == 1:   # Listar todos
+           listarTodasAsManifestacoes(conexao)
 
-        if opcao < 0 or opcao > 3:
-            print('Opcao Invalida!')
+        elif opcao == 2:   # Listar por tipo
             print()
-        else:
-            listarManifestacaoPorTipo(conexao, opcao)
-
-    elif opcao == 3:   # Criar Manifestação
-        print()
-        print()
-        print('                                  ===\   CRIAR MANIFESTAÇÃO   /===')
-        print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
-        print()
-        print()
-        opcao = int(input('Digite o número da sua opcão: '))
-
-        if opcao < 0 or opcao > 3:
-            print('Opcao Invalida!')
             print()
-        else:
-            criarManifestacao(conexao, opcao)
+            print('                                   ===\   LISTAGEM POR TIPO   /===')
+            print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
+            print()
+            print()
+            opcao = int(input('Digite sua opcao: '))
+
+            if opcao < 0 or opcao > 3:
+                print('Opcao Invalida!')
+                print()
+            else:
+                listarManifestacaoPorTipo(conexao, opcao)
+
+        elif opcao == 3:   # Criar Manifestação
+            print()
+            print()
+            print('                                  ===\   CRIAR MANIFESTAÇÃO   /===')
+            print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
+            print()
+            print()
+            opcao = int(input('Digite o número da sua opcão: '))
+
+            if opcao < 0 or opcao > 3:
+                print('Opcao Invalida!')
+                print()
+            else:
+                criarManifestacao(conexao, opcao)
 
 
-    elif opcao == 4:   # Quantidade de Manifestações
-        print()
-        print()
-        print('                              ===\   QUANTIDADE DE MANIFESTAÇÕES   /===')
-        print()
-        print()
-        listarQuantidadeDeManifestacao(conexao)
+        elif opcao == 4:   # Quantidade de Manifestações
+            print()
+            print()
+            print('                              ===\   QUANTIDADE DE MANIFESTAÇÕES   /===')
+            print()
+            print()
+            listarQuantidadeDeManifestacao(conexao)
 
-    elif opcao == 5:   # Pesquisar por Código
-        print()
-        print()
-        print('                                 ===\   PESQUISAR POR CÓDIGO   /===')
-        print()
-        print()
-        pesquisarManifestacaoPorCodigo(conexao)
-    elif opcao == 6:   # Editar Manifestação
-        print()
-        print()
-        print('                                  ===\   EDITAR MANIFESTAÇÃO   /===')
-        print()
-        print()
-        editarManifestacao(conexao)
+        elif opcao == 5:   # Pesquisar por Código
+            print()
+            print()
+            print('                                 ===\   PESQUISAR POR CÓDIGO   /===')
+            print()
+            print()
+            pesquisarManifestacaoPorCodigo(conexao)
+        elif opcao == 6:   # Editar Manifestação
+            print()
+            print()
+            print('                                  ===\   EDITAR MANIFESTAÇÃO   /===')
+            print()
+            print()
+            editarManifestacao(conexao)
 
-    elif opcao == 7:   # Excluir Manifestação
-        print()
-        print()
-        print('                                 ===\   EXCLUIR MANIFESTAÇÃO   /===')
-        print()
-        print()
-        deletarManifestacao(conexao)
+        elif opcao == 7:   # Excluir Manifestação
+            print()
+            print()
+            print('                                 ===\   EXCLUIR MANIFESTAÇÃO   /===')
+            print()
+            print()
+            deletarManifestacao(conexao)
 
-    elif opcao != 8:
+        elif opcao != 8:
+            print('Opção inválida!')
+
+    except ValueError:
         print('Opção inválida!')
 
 print()
