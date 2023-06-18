@@ -6,12 +6,12 @@ def listarManifestacaoPorTipo(conexao,opcao):
         tipoPlural = 'Elogios'
 
     elif opcao == 2:
-        tip = "'Reclamacao'"
-        tipoPlural = 'Reclamacoes'
-
-    elif opcao == 3:
         tip = "'Sugestao'"
         tipoPlural = 'Sugestoes'
+
+    elif opcao == 3:
+        tip = "'Reclamacao'"
+        tipoPlural = 'Reclamacoes'
 
     if opcao == 0:
         print('Voltando...')
