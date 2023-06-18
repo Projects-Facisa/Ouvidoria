@@ -55,7 +55,7 @@ while opcao != 8:   # Menu Principal
         print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
         print()
         print()
-        criarManifestacao(conexao)
+        criarManifestacao(conexao, opcao)
 
 
     elif opcao == 4:   # Quantidade de Manifestações
