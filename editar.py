@@ -5,6 +5,7 @@ def editarManifestacao(conexao):
     codigo = input('Digite o codigo da manifestação : ')
 
     try:
+        int(codigo)
         consultaListagemSql = 'select * from manifestacao where codigo =' + codigo
         consultaListagem = listarBancoDados(conexao, consultaListagemSql)
         if len(consultaListagem) == 0:
