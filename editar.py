@@ -10,12 +10,10 @@ def editarManifestacao(conexao):
         if len(consultaListagem) == 0:
             print('Não há manifestações Cadastradas nesse Codigo')
         else:
-            comandoSql = "select * from manifestacao where codigo = " + codigo
-            manifestacao = listarBancoDados(conexao, comandoSql)
             print('Você deseja editar a manifestação abaixo ?')
             print()
 
-            for i in manifestacao:
+            for i in consultaListagem:
                 print('Código:', i[0])
                 print('Título:', i[1])
                 print('Descrição:', i[2])
