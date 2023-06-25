@@ -42,7 +42,7 @@ while opcao != 8:   # Menu Principal
             print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
             print()
             print()
-            listarManifestacaoPorTipo(conexao, opcao)
+            listarManifestacaoPorTipo(conexao)
 
         elif opcao == 3:   # Criar Manifestação
             print()
