@@ -11,6 +11,7 @@ def listarManifestacaoPorTipo(conexao):  # Metodo para Listar manifestacao por T
             if opcao < 0 or opcao > 3:  # Teste de Opcao Invalida
                 print('Opção inválida!')
                 print()
+
             else:
                 if opcao == 1:   # TIPO ELOGIO
                     tip = "'Elogio'"
@@ -33,11 +34,14 @@ def listarManifestacaoPorTipo(conexao):  # Metodo para Listar manifestacao por T
 
                     if len(resultado) == 0:    # teste se ha manifestacao no tipo escolhido
                         print('Não há', tipoPlural,'a serem listados!')
-                        print()
+
                     else:        # Execucao da Listagem por Codigo
                         manifestacao = listarBancoDados(conexao, consultaListagem)
                         for i in manifestacao:
                             print('codigo', i[0], '-', i[1], '-', i[4])
+                    opcao = 0
 
         except ValueError:
+            print()
             print('Opção inválida!')
+            print()
