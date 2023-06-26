@@ -18,7 +18,7 @@ from pesquisarPorCodigo import *
 from editar import *
 from deletar import *
 
-conexao = abrirBancoDados('localhost', 'root', '12345', 'ouvidoria')
+conexao = abrirBancoDados('localhost', 'root', '1243', 'ouvidoria')
 
 opcao = 0
 while opcao != 8:   # Menu Principal
@@ -33,7 +33,7 @@ while opcao != 8:   # Menu Principal
         opcao = int(input('Digite o número da opção: '))
 
         if opcao == 1:   # Listar todos
-           listarTodasAsManifestacoes(conexao)
+            listarTodasAsManifestacoes(conexao)
 
         elif opcao == 2:   # Listar por tipo
             print()
@@ -51,8 +51,7 @@ while opcao != 8:   # Menu Principal
             print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
             print()
             print()
-            criarManifestacao(conexao, opcao)
-
+            criarManifestacao(conexao)
 
         elif opcao == 4:   # Quantidade de Manifestações
             print()
@@ -69,6 +68,7 @@ while opcao != 8:   # Menu Principal
             print()
             print()
             pesquisarManifestacaoPorCodigo(conexao)
+
         elif opcao == 6:   # Editar Manifestação
             print()
             print()
@@ -85,14 +85,12 @@ while opcao != 8:   # Menu Principal
             print()
             deletarManifestacao(conexao)
 
-        elif opcao != 8:
+        elif opcao != 8:   # Opção inválida para números
             print('Opção inválida!')
 
-    except ValueError:
+    except ValueError:   # Opção inválida para letras
         print('Opção inválida!')
 
-print()
-print()
 print('Saindo...')
 
 encerrarBancoDados(conexao)
