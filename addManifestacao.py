@@ -1,6 +1,13 @@
 from operacoesbd import *
 
 def criarManifestacao(conexao, opcao = 0):
+    opcao = int(input('Digite o número da sua opcão: '))
+
+    if opcao < 0 or opcao > 3:
+        print('Opcao Invalida!')
+        print()
+
+    else:
         tipo = ''
         if opcao == 1:
             tipo = 'Elogio'
