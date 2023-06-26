@@ -5,7 +5,7 @@ def listarManifestacaoPorTipo(conexao):  # Metodo para Listar manifestacao por T
     opcao = 'entrada'
     while opcao != 0:
         try:
-            opcao = int(input('Digite o número da sua opção ou (0). Para Voltar :   '))
+            opcao = int(input('Digite o número da sua opção:  '))
             print()
 
             if opcao < 0 or opcao > 3:  # Teste de Opcao Invalida
