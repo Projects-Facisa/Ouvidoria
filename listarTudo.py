@@ -1,17 +1,13 @@
 from operacoesbd import *
 
-def listarTodasAsManifestacoes(conexao):
+def listarTodasAsManifestacoes(conexao):  # Metodo para listar todas as manifestacoes
     print()
-    comandoSql = "select count(*) from manifestacao"
-    manifestacoes = listarBancoDados(conexao, comandoSql)
-    manifestacoes = manifestacoes[0][0]
+    comandoSql = "select * from manifestacao"
+    manifestacoes = listarBancoDados(conexao, comandoSql)   # Comando para consultar no Banco de Dados
 
-    if manifestacoes == 0:
+    if len(manifestacoes) == 0:      # Teste se ha manifestacao no banco
         print('Não há manifestações a serem listadas!')
 
     else:
-        comandoSql = "select * from manifestacao"
-        manifestacoes = listarBancoDados(conexao, comandoSql)
-
-        for i in manifestacoes:
+        for i in manifestacoes:        # Execucao da Listagem
             print('Código', i[0], '-', i[1], '-', i[4], '-', i[3])

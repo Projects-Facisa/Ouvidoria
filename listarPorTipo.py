@@ -29,7 +29,7 @@ def listarManifestacaoPorTipo(conexao):  # Metodo para Listar manifestacao por T
             if len(resultado) == 0:    # teste se ha manifestacao no tipo escolhido
                 print('Não há', tipoPlural,'a serem listados!')
                 print()
-            else:        # Execucao do codigo
+            else:        # Execucao da Listagem por Codigo
                 manifestacao = listarBancoDados(conexao, consultaListagem)
                 for i in manifestacao:
                     print('codigo', i[0], '-', i[1], '-', i[4])
