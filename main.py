@@ -51,13 +51,7 @@ while opcao != 8:   # Menu Principal
             print('                       Tipo: (1).Elogio (2).Sugestão (3).Reclamação (0).Voltar')
             print()
             print()
-            opcao = int(input('Digite o número da sua opcão: '))
-
-            if opcao < 0 or opcao > 3:
-                print('Opcao Invalida!')
-                print()
-            else:
-                criarManifestacao(conexao, opcao)
+            criarManifestacao(conexao, opcao)
 
 
         elif opcao == 4:   # Quantidade de Manifestações
