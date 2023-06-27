@@ -52,10 +52,12 @@ def editarManifestacao(conexao):
                             print()
                             print('Edição realizada com sucesso!')
                             opcao = 2
+                            codigo = 0
 
                         elif opcao == 2:
                             print()
                             print('Voltando...')
+                            codigo = 0
 
                         elif opcao != 2:
                             raise ValueError
@@ -66,7 +68,6 @@ def editarManifestacao(conexao):
 
                     except ValueError:
                         print('Opção inválida! Tente: (1).Sim (2).Não')
-                    codigo = 0
 
         except ValueError:
             print()

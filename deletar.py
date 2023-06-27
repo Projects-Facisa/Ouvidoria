@@ -49,17 +49,18 @@ def deletarManifestacao(conexao):
                             print()
                             print('Manifestação excluida com sucesso!')
                             opcao = 2
+                            codigo = 0
 
                         elif opcao == 2:
                             print()
                             print('Voltando...')
+                            codigo = 0
 
                         elif opcao != 2:
                             raise ValueError  # caso a opcao não for 1 ou 2 vai pro mesmo except como se fosse o input fosse string
 
                     except ValueError:
                         print('Opção invalida! Tente: (1).Sim (2).Não')
-                    codigo = 0
 
         except ValueError:
             print()
