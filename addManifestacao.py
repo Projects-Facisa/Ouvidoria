@@ -7,7 +7,9 @@ def criarManifestacao(conexao):
             opcao = int(input('Digite o número da sua opcão: '))
 
             if opcao < 0 or opcao > 3:
+                print()
                 print('Opção inválida!')
+                print()
 
             else:
                 tipo = ''
@@ -25,6 +27,7 @@ def criarManifestacao(conexao):
                     print('Voltando...')
 
                 else:
+                    print()
                     titulo = input('Digite o título: ')
                     descricao = input('Digite a descrição: ')
                     autor = input('Digite seu nome: ')
@@ -33,8 +36,11 @@ def criarManifestacao(conexao):
                     dados = [titulo, descricao, tipo, autor]
 
                     insertNoBancoDados(conexao, comandoSql, dados)
+                    print()
                     print('Manifestação cadastrada com sucesso!')
                     opcao = 0
 
         except ValueError:
+            print()
             print("Opção inválida!")
+            print()

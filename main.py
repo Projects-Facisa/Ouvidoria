@@ -86,11 +86,14 @@ while opcao != 8:   # Menu Principal
             deletarManifestacao(conexao)
 
         elif opcao != 8:   # Opção inválida para números
+            print()
             print('Opção inválida!')
 
     except ValueError:   # Opção inválida para letras
+        print()
         print('Opção inválida!')
 
+print()
 print('Saindo...')
 
 encerrarBancoDados(conexao)

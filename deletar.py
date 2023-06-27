@@ -10,7 +10,7 @@ def deletarManifestacao(conexao):
     codigo = 'entrada'  # variavel para rodar o while abaixo
     while codigo != 0:
         try:
-            codigo = int(input('Digite o codigo da manifestação ou 0 para voltar: '))
+            codigo = int(input('Digite o código da manifestação ou (0).Para voltar: '))
             consultaListagem = 'select * from manifestacao where codigo = ' + str(codigo)  # código sql para pegar a row
             listarPorCodigo = listarBancoDados(conexao, consultaListagem)  # criada a variavel que pega o valor da row
 
@@ -20,7 +20,7 @@ def deletarManifestacao(conexao):
 
             elif len(listarPorCodigo) == 0:  # verifica o tamanho da row para dar feedaback caso esteja vazia
                 print()
-                print('Não há manifestações neste codigo!')
+                print('Não há manifestação cadastrada neste codigo!')
                 print()
 
             else:  # print da manifestação do código para confirmação
@@ -35,7 +35,7 @@ def deletarManifestacao(conexao):
                     print('Tipo:', i[3])
                     print('Autor:', i[4])
                     print()
-                    print('1)Sim 2)Não')
+                    print('(1).Sim (2).Não')
 
                 opcao = 'entrada'  # variavel para rodar o while abaixo
                 while opcao != 2:  # while para continuar pedindo o input caso digite código inválido ou string
@@ -47,7 +47,7 @@ def deletarManifestacao(conexao):
                             valores = [codigo]
                             excluirBancoDados(conexao, deletarSql, valores)  # executa a linha 41 no servidor sql
                             print()
-                            print('Manifestação removida com sucesso!')
+                            print('Manifestação excluida com sucesso!')
                             opcao = 2
 
                         elif opcao == 2:
@@ -58,7 +58,7 @@ def deletarManifestacao(conexao):
                             raise ValueError  # caso a opcao não for 1 ou 2 vai pro mesmo except como se fosse o input fosse string
 
                     except ValueError:
-                        print('Opção Invalida! Tente : (1).Sim (2).Não ')
+                        print('Opção invalida! Tente: (1).Sim (2).Não')
                     codigo = 0
 
         except ValueError:
