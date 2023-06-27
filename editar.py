@@ -15,11 +15,12 @@ def editarManifestacao(conexao):
             consultaListagem = listarBancoDados(conexao, consultaListagemSql) #Variavel que envia e executa o comando da linha 14 pro servidor do mysql
 
             if codigo == 0: #Opção dada na linha 13 Caso o operador da Ouvidoria Deseje voltar ao menu principal sem alterar nada do banco.
+                print()
                 print('Voltando...')
 
             elif len(consultaListagem) == 0:
                 print()
-                print('Não há manifestações cadastradas nesse codigo')
+                print('Não há manifestações cadastradas neste código!')
                 print()
             else:
                 print()
