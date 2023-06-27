@@ -10,15 +10,19 @@ def editarManifestacao(conexao):
     codigo = 'entrada' #Variavel que serve para manter o while de baixo funcionando
     while codigo != 0:
         try:
-            codigo = int(input('Digite o codigo da manifestação ou (0). Para Voltar :  '))  #Input que pede o Codigo da manifestação em questão a ser editada.
+            codigo = int(input('Digite o código da manifestação ou (0).Para Voltar:  '))  #Input que pede o Codigo da manifestação em questão a ser editada.
             consultaListagemSql = 'select * from manifestacao where codigo =' + str(codigo) #Variavel que determina o comando a ser executado
             consultaListagem = listarBancoDados(conexao, consultaListagemSql) #Variavel que envia e executa o comando da linha 14 pro servidor do mysql
+
             if codigo == 0: #Opção dada na linha 12 Caso o operador da Ouvidoria Deseje voltar ao menu principal sem alterar nada do banco.
                 print('Voltando...')
+
             elif len(consultaListagem) == 0:
                 print()
-                print('Não há manifestações Cadastradas nesse Codigo')
+                print('Não há manifestações cadastradas nesse codigo')
+                print()
             else:
+                print()
                 print('Você deseja editar a manifestação abaixo ?')
                 print()
 
@@ -31,31 +35,39 @@ def editarManifestacao(conexao):
                     print()
                     print('(1).Sim (2).Não')
                 opcao = 'entrada' #Variavel que serve para manter o while de baixo funcionando
+
                 while opcao != 2:
                     try:
                         opcao = int(input('= '))
+
                         if opcao == 1:
-                            novoTitulo = input('Digite o novo titulo da manifestação : ')
-                            novaDescricao = input('Digite a nova Descrição : ')
+                            print()
+                            novoTitulo = input('Digite o novo título da manifestação: ')
+                            novaDescricao = input('Digite a nova descrição: ')
 
                             sqlAtualizar = 'update manifestacao set titulo = %s, descricao = %s where codigo = %s' #Variavel que determina o comando a ser executado
                             valores = [novoTitulo, novaDescricao, codigo] #Variavel que guarda os valores a serem alterados
-                            print('Edição Realizada com Sucesso !')
+                            print()
+                            print('Edição realizada com sucesso!')
                             atualizarBancoDados(conexao, sqlAtualizar, valores) #Variavel que envia e executa o comando da linha 41 e 42 pro servidor do mysql
                             opcao = 2
+
                         elif opcao == 2:
-                            print('Retornando...')
+                            print()
+                            print('Voltando...')
+
                         elif opcao != 2:
                             raise ValueError
                             #Comando Raise serve pra englobar 2 possiveis erros na opção
                             #Da linha 32/36 caso seja um numero maior que 2 ou 0 e caso seja uma str
                             #Fazendo com que o try da linha 35 vá direto pro except ValueError com feedback de opção Inválida
                             #Recomendando as opções corretas de continuar com a edição (1). Ou Cancelar e Retornar pro Menu Principal (2).
+
                     except ValueError:
-                        print('Opção Inválida !, Tente : (1).Sim (2).Não')
+                        print('Opção inválida! Tente: (1).Sim (2).Não')
                     codigo = 0
+
         except ValueError:
             print()
-            print('Código inválido !')
+            print('Código inválido!')
             print()
-
